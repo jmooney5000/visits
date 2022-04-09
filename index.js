@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
     setTimeout(() => {  console.log("World!"); }, 2000);
   process.exit(0);
   client.get('visits', (err, visits) => {
-    res.send('Number of visits ' + visits);
+    res.send('Number of visits ---> ' + visits);
     client.set('visits', parseInt(visits) + 1);
   });
 });
