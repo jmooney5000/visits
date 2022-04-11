@@ -9,10 +9,13 @@ pipeline {
 
     stages {
 
-        stage("build") {
+        stage("build front end") {
 
             steps {
-                echo '>>>>>> building the application...'
+                echo '>>>>>> executing yarn ..........'
+                nodejs('NodeJS 17.9.0') {
+                    sh 'yarn install'
+                }
             }
         }
 
