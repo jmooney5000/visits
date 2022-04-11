@@ -18,7 +18,7 @@ pipeline {
                 }
             }
             steps {
-                echo 'testing the application bananas...'
+                echo 'testing the application bananas.....'
             }
         }
 
