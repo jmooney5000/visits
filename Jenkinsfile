@@ -1,6 +1,11 @@
 pipeline {
 
-    agent any 
+    agent any
+
+    environment {
+        NEW_VERSION = '1.2.3.4a'
+        SERVER_CREDENTIALS = credentials('my-pipeline-git-credentials')
+    }
 
     stages {
 
@@ -19,6 +24,8 @@ pipeline {
             }
             steps {
                 echo 'testing the application bananas.....'
+                echo "building version ${NEW_VERSION}"
+                echo "my-pipeline-git-credentials ${SERVER_CREDENTIALS}"
             }
         }
 
