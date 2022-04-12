@@ -6,9 +6,11 @@ def buildApp() {
 }
 
 def testApp() {
-    echo 'testing the application of all bananas.....'
-    echo "building version ${NEW_VERSION}"
-    echo "my-pipeline-git-credentials ${SERVER_CREDENTIALS}"
+    if (env.BRANCH_NAME == 'dev') {
+        echo 'testing the application of all bananas..... I said'
+        echo "building version ${NEW_VERSION}"
+        echo "my-pipeline-git-credentials ${SERVER_CREDENTIALS}"
+    }
 }
 
 def deployApp() {

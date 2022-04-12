@@ -29,12 +29,7 @@ pipeline {
             }
         }
 
-        stage("test banana") {
-            when {
-                expression {
-                    env.BRANCH_NAME == 'dev'
-                }
-            }
+        stage("test bananas>>>") {
             steps {
                 script {
                     gv.testApp()
