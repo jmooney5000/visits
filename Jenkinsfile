@@ -1,3 +1,5 @@
+def gv
+
 pipeline {
 
     agent any
@@ -9,12 +11,20 @@ pipeline {
 
     stages {
 
+        stage("init") {
+
+            steps {
+                script {
+                    gv = load "script.groovy" 
+                }
+            }
+        }
+
         stage("build front end") {
 
             steps {
-                echo '>>>>>> executing yarn ..........'
-                nodejs('NodeJS 17.9.0') {
-                    sh 'yarn install'
+                script {
+                    gv.buildApp()
                 }
             }
         }
