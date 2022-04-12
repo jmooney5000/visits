@@ -36,21 +36,17 @@ pipeline {
                 }
             }
             steps {
-                echo 'testing the application bananas.....'
-                echo "building version ${NEW_VERSION}"
-                echo "my-pipeline-git-credentials ${SERVER_CREDENTIALS}"
+                script {
+                    gv.testApp()
+                }
             }
         }
 
         stage("deploy") {
 
             steps {
-                echo 'deploying the application...'
-                withCredentials([
-                    usernamePassword(credentialsId: 'my-pipeline-git-credentials', usernameVariable: 'USER', passwordVariable: 'PWD')
-                ]) {
-                    echo "username password: ${USER}"
-                    echo "${PWD}"
+                script {
+                    gv.deployApp()
                 }
             }
         }
